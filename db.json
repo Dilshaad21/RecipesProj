@@ -1,0 +1,16 @@
+{
+  "recipes": [
+    {
+      "id": "r1",
+      "title": "Sch nitzel",
+      "imageUrl": "Image Url",
+      "ingredients": ["Pasta", "Pepper"]
+    },
+    {
+      "id": "r2",
+      "title": "Sch nitzel1",
+      "imageUrl": "Image Url1",
+      "ingredients": ["Pasta1", "Pepper1"]
+    }
+  ]
+}

@@ -1,10 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Recipes</ion-title>
+    <ion-title>Recipes App</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-button (click)="setRecipes()">
+    Display
+  </ion-button>
   <ion-list>
     <app-recipe-item *ngFor="let recipe of recipes" [recipeItem]="recipe">
     </app-recipe-item>

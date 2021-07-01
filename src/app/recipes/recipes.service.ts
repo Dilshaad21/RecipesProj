@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -9,49 +10,24 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
   providedIn: 'root',
 })
 export class RecipesService {
-  private recipes: Recipe[] = [];
+  recipes: Recipe[] = [];
   private db;
-  // private apiURL = 'http://localhost:5000/recipes';
+  constructor() {}
 
-  constructor(private http: HttpClient) {
-    this.db = new PouchDB('recipes');
-    // this.db.destroy();
-    // this.http.get<Recipe[]>(this.apiURL).subscribe(async (res) => {
-    //   await this.db.bulkDocs([...res]);
-    // });
-  }
-
-  writeToFile = async (res) => {
-    await Filesystem.writeFile({
-      path: 'docum/recipes44.txt',
-      data: JSON.stringify(res),
-      directory: Directory.Documents,
-      encoding: Encoding.ASCII,
-    });
-  };
-
-  readJSONFile = async () => {
+  readFile = async () => {
     const contents = await Filesystem.readFile({
-      path: 'docum/recipes44.txt',
-      directory: Directory.Documents,
+      path: 'recipes106911.txt',
+      directory: Directory.ExternalStorage,
       encoding: Encoding.ASCII,
     });
+    console.log(JSON.parse(contents.data.toString()));
     return JSON.parse(contents.data.toString());
   };
 
   getAllRecipes = async () => {
-    this.db.post({
-      id: 'r34',
-      title: 'Any food item title',
-      imageUrl: 'Image Url1',
-      ingredients: ['Ingredient1', 'Ingredient2'],
-    });
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    this.db.allDocs({ include_docs: true }, (err, res) => {
-      this.writeToFile(res.rows);
-    });
-
-    await this.readJSONFile().then((res) => {
+    console.log('starting');
+    await this.readFile().then((res) => {
       // eslint-disable-next-line arrow-body-style
       this.recipes = res.map((obj) => {
         return {

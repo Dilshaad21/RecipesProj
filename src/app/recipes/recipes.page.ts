@@ -20,6 +20,24 @@ export class RecipesPage implements OnInit {
       imageUrl: 'Image Url1',
       ingredients: ['Ingredient1', 'Ingredient2'],
     });
+    this.db.post({
+      id: 'r1',
+      title: 'Food Item1',
+      imageUrl: 'Image Url1',
+      ingredients: ['Ingredient1', 'Ingredient2'],
+    });
+    this.db.post({
+      id: 'r2',
+      title: 'Food Item2',
+      imageUrl: 'Image Url1',
+      ingredients: ['Ingredient1', 'Ingredient2'],
+    });
+    this.db.post({
+      id: 'r3',
+      title: 'Food Item3',
+      imageUrl: 'Image Url1',
+      ingredients: ['Ingredient1', 'Ingredient2'],
+    });
   }
 
   writeToFile = async (res) => {
@@ -47,8 +65,8 @@ export class RecipesPage implements OnInit {
 
   ngOnInit() {
     this.fileWriter();
-    // this.setRecipes();
   }
+
   setRecipes = () => {
     this.recipesService.getAllRecipes().then((res) => {
       this.recipes = res;
